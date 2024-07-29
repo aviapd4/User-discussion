@@ -1,0 +1,14 @@
+<!-- templates/create_discussion.html -->
+{% extends 'base.html' %}
+
+{% block title %}Create Discussion{% endblock %}
+
+{% block content %}
+<h1>Create Discussion</h1>
+<form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Save</button>
+</form>
+<a href="{% url 'discussion_list' %}">Back to list</a>
+{% endblock %}

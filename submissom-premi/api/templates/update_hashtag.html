@@ -1,0 +1,14 @@
+<!-- templates/update_hashtag.html -->
+{% extends 'base.html' %}
+
+{% block title %}Update Hashtag{% endblock %}
+
+{% block content %}
+<h1>Update Hashtag</h1>
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Save</button>
+</form>
+<a href="{% url 'hashtag_list' %}">Back to list</a>
+{% endblock %}

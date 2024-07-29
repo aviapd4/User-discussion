@@ -1,0 +1,14 @@
+<!-- templates/delete_hashtag.html -->
+{% extends 'base.html' %}
+
+{% block title %}Delete Hashtag{% endblock %}
+
+{% block content %}
+<h1>Delete Hashtag</h1>
+<p>Are you sure you want to delete this hashtag?</p>
+<form method="post">
+    {% csrf_token %}
+    <button type="submit">Confirm</button>
+</form>
+<a href="{% url 'hashtag_list' %}">Cancel</a>
+{% endblock %}

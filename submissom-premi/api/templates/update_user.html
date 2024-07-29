@@ -1,0 +1,14 @@
+<!-- templates/update_user.html -->
+{% extends 'base.html' %}
+
+{% block title %}Update User{% endblock %}
+
+{% block content %}
+<h1>Update User</h1>
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Save</button>
+</form>
+<a href="{% url 'user_list' %}">Back to list</a>
+{% endblock %}

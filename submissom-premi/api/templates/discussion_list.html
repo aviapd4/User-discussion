@@ -1,0 +1,16 @@
+<!-- templates/discussion_list.html -->
+{% extends 'base.html' %}
+
+{% block title %}Discussion List{% endblock %}
+
+{% block content %}
+<h1>Discussion List</h1>
+<ul>
+    {% for discussion in discussions %}
+        <li>
+            <a href="{% url 'discussion_detail' discussion.pk %}">{{ discussion.text_field|slice:":100" }}...</a>
+        </li>
+    {% endfor %}
+</ul>
+<a href="{% url 'create_discussion' %}">Create Discussion</a>
+{% endblock %}

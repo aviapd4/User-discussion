@@ -1,0 +1,16 @@
+<!-- templates/hashtag_list.html -->
+{% extends 'base.html' %}
+
+{% block title %}Hashtag List{% endblock %}
+
+{% block content %}
+<h1>Hashtag List</h1>
+<ul>
+    {% for hashtag in hashtags %}
+        <li>
+            <a href="{% url 'hashtag_detail' hashtag.pk %}">{{ hashtag.tag }}</a>
+        </li>
+    {% endfor %}
+</ul>
+<a href="{% url 'create_hashtag' %}">Create Hashtag</a>
+{% endblock %}

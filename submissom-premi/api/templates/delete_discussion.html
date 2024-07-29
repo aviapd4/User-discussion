@@ -1,0 +1,14 @@
+<!-- templates/delete_discussion.html -->
+{% extends 'base.html' %}
+
+{% block title %}Delete Discussion{% endblock %}
+
+{% block content %}
+<h1>Delete Discussion</h1>
+<p>Are you sure you want to delete this discussion?</p>
+<form method="post">
+    {% csrf_token %}
+    <button type="submit">Confirm</button>
+</form>
+<a href="{% url 'discussion_list' %}">Cancel</a>
+{% endblock %}

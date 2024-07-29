@@ -1,0 +1,21 @@
+<!-- templates/discussion_detail.html -->
+{% extends 'base.html' %}
+
+{% block title %}Discussion Detail{% endblock %}
+
+{% block content %}
+<h1>{{ discussion.text_field }}</h1>
+<img src="{{ discussion.image.url }}" alt="Discussion Image">
+<p>Created on: {{ discussion.created_on }}</p>
+<p>Hashtags: {% for hashtag in discussion.hashtags.all %}{{ hashtag.tag }} {% endfor %}</p>
+
+<h2>Comments</h2>
+{% for comment in comments %}
+    <p>{{ comment.user.username }}: {{ comment.text }} ({{ comment.created_on }})</p>
+{% endfor %}
+
+<a href="{% url 'create_comment' discussion.pk %}">Add Comment</a>
+<a href="{% url 'update_discussion' discussion.pk %}">Edit</a>
+<a href="{% url 'delete_discussion' discussion.pk %}">Delete</a>
+<a href="{% url 'discussion_list' %}">Back to list</a>
+{% endblock %}

@@ -1,0 +1,17 @@
+<!-- templates/hashtag_detail.html -->
+{% extends 'base.html' %}
+
+{% block title %}Hashtag Detail{% endblock %}
+
+{% block content %}
+<h1>{{ hashtag.tag }}</h1>
+<p>Discussions with this hashtag:</p>
+<ul>
+    {% for discussion in hashtag.discussions.all %}
+        <li><a href="{% url 'discussion_detail' discussion.pk %}">{{ discussion.text_field|slice:":100" }}...</a></li>
+    {% endfor %}
+</ul>
+<a href="{% url 'update_hashtag' hashtag.pk %}">Edit</a>
+<a href="{% url 'delete_hashtag' hashtag.pk %}">Delete</a>
+<a href="{% url 'hashtag_list' %}">Back to list</a>
+{% endblock %}
